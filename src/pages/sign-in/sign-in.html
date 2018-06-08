@@ -17,18 +17,20 @@
   <form (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="form-group">
         <ion-item>
-            <ion-label fixed>Email</ion-label>
-            <ion-input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" #email="ngModel" required></ion-input>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" #email="ngModel" required
+            pattern="[a-zA-Z0-9._]+[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"></ion-input>
           </ion-item>
     </div>
 
     <div class="form-group">
         <ion-item>
-            <ion-label fixed>Password</ion-label>
+            <ion-label floating>Password</ion-label>
             <ion-input type="password" class="form-control" id="password" [(ngModel)]="user.password" name="password" #password="ngModel" required></ion-input>
           </ion-item>
     </div>
     <button ion-button type="submit" block [disabled]="!form.valid" color="primary">Submit</button>
+    <div color="danger" *ngIf="error">Invalide email id or Password</div>
   </form>
 
 </ion-content>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
-import { HomePage } from '../home/home'
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the SignInPage page.
@@ -17,6 +17,7 @@ import { HomePage } from '../home/home'
 })
 export class SignInPage {
   user = {email:'',password:''};
+  error:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -26,9 +27,11 @@ export class SignInPage {
   }
   onSubmit(form :NgForm){
     if(this.user.email=="admin@glx.com" && this.user.password=="admin"){
+    
       this.navCtrl.setRoot(HomePage);
     }else{
-      
+
+      this.error=true;
     }
     
   }
