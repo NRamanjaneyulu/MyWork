@@ -8,13 +8,40 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+
+    <button ion-button block (click)="SignOut()">SignOut</button>
+    <p>
+
+
+    </p>
+<h3 > Sample http services:</h3>
+
+  <div *ngFor="let post of posts">
+    <div class="list card" style="border-radius: 5px 5px 0 0;     background-color: aliceblue;">
+
+      <div class="item item-avatar">
+        <h2>{{post.title}}</h2>
+      </div>
+
+      <div class="item item-body">
+        <p>
+          {{post.body}}
+        </p>
+        <p>
+          <a href="#" class="subdued">1 Like</a>
+          <a href="#" class="subdued">5 Comments</a>
+        </p>
+      </div>
+
+    </div>
+    <br>
+  </div>
+
+  <!-- <h3>Ionic Menu Starter</h3>
 
   <p>
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
   </p>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
-
-  <button ion-button  (click)="SignOut()">SignOut</button>
+  <button ion-button secondary menuToggle>Toggle Menu</button> -->
 </ion-content>
