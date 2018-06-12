@@ -1,0 +1,66 @@
+<!--
+  Generated template for the SignUpPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>signUp</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="form-group">
+      <ion-item>
+        <ion-label floating>User Name</ion-label>
+        <ion-input type="text" class="form-control" id="username" [(ngModel)]="user.username" minlength="3" maxlength="20" name="username"
+          #username="ngModel" required></ion-input>
+      </ion-item>
+      <div *ngIf="(!username.valid && username.dirty)">
+        User Name is required (minimum 3 characters).
+      </div>
+    </div>
+    <div class="form-group">
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" #email="ngModel" required pattern="[a-zA-Z0-9._]+[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"></ion-input>
+
+      </ion-item>
+      <div *ngIf="(!email.valid && email.dirty)">
+        Email is required and format should be
+        <i>john@doe.com</i>.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" class="form-control" id="password" minlength="6" [(ngModel)]="user.password" name="password" #password="ngModel" 
+          required ></ion-input>
+
+      </ion-item>
+      <div *ngIf="(!password.valid && password.dirty)">
+        Password is required (minimum 6 characters)
+       </div> 
+    </div>
+
+    <div class="form-group" >
+      <ion-item >
+        <ion-label floating>Confirm Password</ion-label>
+        <ion-input [disabled]="!password.valid" type="password" class="form-control" id="confirmPassword" [(ngModel)]="user.confirmPassword" name="confirmPassword"  #confirmPassword="ngModel" required ></ion-input>
+      </ion-item>
+        <div *ngIf="( !(password.value==confirmPassword.value ) && confirmPassword.dirty)">
+          Password mismatch
+        </div>
+    </div>
+    <button ion-button type="submit" block [disabled]="(!form.valid || !(password.value==confirmPassword.value ))" >Submit</button>
+    <div *ngIf="error">Invalide email id or Password</div>
+  </form>
+
+</ion-content>
