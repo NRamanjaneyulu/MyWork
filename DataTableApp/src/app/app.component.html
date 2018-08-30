@@ -1,0 +1,198 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+<!-- 
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="example-fill-remaining-space"></span>
+    <span class="example-spacer"></span>
+
+    <button mat-button>About</button>
+    <button mat-button>Contact</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" matSort>
+
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+          <mat-form-field>
+              <input matInput placeholder="ID" [value]="element.id" [(ngModel)]="element.id"
+              [ngClass]="{'highlight': readonlyAll && element.idDisabl}" 
+              (keyup)="validateId($event.target.value)" [disabled] = "readonlyAll && !element.idDisabl  ">
+            </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element" > 
+          <mat-form-field >
+              <input matInput placeholder="Name" [value]="element.name" [(ngModel)]="element.name"
+               [ngClass]="{'highlight': readonlyAll && element.nameDisabl}"
+              (keyup)="addRow($event.target.value)" [disabled] = "element.id==null || (readonlyAll && !element.nameDisabl)">  
+              
+            </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="city">
+        <mat-header-cell *matHeaderCellDef> City </mat-header-cell>
+        <mat-cell *matCellDef="let element" > 
+            <mat-form-field >
+                <mat-select [(ngModel)]="element.city" placeholder="city">
+                  <mat-option [value]=" ">None</mat-option>
+                  <mat-option *ngFor="let option of citys" [value]="option.id">{{ option.name }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            
+         </mat-cell>
+      </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" 
+    (click) = "rowClicked(row)" ></mat-row>
+  </mat-table>
+  
+  <mat-paginator [length]="2" [pageSize]="5" 
+  [pageSizeOptions]="[5, 25, 50]" [showFirstLastButtons]="true" [hidePageSize]="true" >
+  </mat-paginator>
+</div> -->
+
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="errorDetails" matSort>
+
+    <!-- <ng-container *ngFor = "let col of disColumns" matColumnDef={{col}}>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{col | uppercase}}  </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element[col]}}
+          <mat-form-field>
+              <input matInput  [value]="element[col]" [(ngModel)]="element[col]" [disabled] = "true" >
+            </mat-form-field>  
+      </mat-cell>
+    </ng-container> -->
+
+    <ng-container matColumnDef="batch">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> BATCH </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+          <mat-form-field>
+              <input matInput  [value]="element.batch" [(ngModel)]="element.batch" [disabled] = "true" >
+            </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="formulary_id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> FORMULARY ID </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+          <mat-form-field>
+              <input matInput  [value]="element.formulary_id" [(ngModel)]="element.formulary_id" [disabled] = "true" >
+            </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="formulary_name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> FORMULARY NAME </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+          <mat-form-field>
+              <input matInput  [value]="element.formulary_name" [(ngModel)]="element.formulary_name" [disabled] = "true" >
+            </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="coverage_list_id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> COVERAGE LIST ID </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+          <mat-form-field>
+              <input matInput  [value]="element.coverage_list_id" [(ngModel)]="element.coverage_list_id" [disabled] = "true" >
+            </mat-form-field>
+      </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="list_id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> LIST ID </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+          <mat-form-field>
+              <input matInput [value]="element.list_id" [(ngModel)]="element.list_id" [disabled] = "true" >
+            </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="rule_set_id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> RULE SET ID </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+          <mat-form-field>
+              <input matInput  [value]="element.rule_set_id" [(ngModel)]="element.rule_set_id" [disabled] = "true" >
+            </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="rule_priority">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> RULE PRIORITY </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+          <mat-form-field>
+              <input matInput  [value]="element.rule_priority" [(ngModel)]="element.rule_priority" [disabled] = "true" >
+            </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="compare_value">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPARE VALUE </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+          <mat-form-field>
+              <input matInput  [value]="element.compare_value" [(ngModel)]="element.compare_value" [disabled] = "true" >
+            </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="error_message">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ERROR MESSAGE </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+          <mat-form-field>
+              <input matInput  [value]="element.error_message" [(ngModel)]="element.error_message" [disabled] = "true" >
+            </mat-form-field>
+      </mat-cell>
+    </ng-container> 
+
+    <mat-header-row *matHeaderRowDef="disColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: disColumns;" 
+    (click) = "rowClicked(row)" ></mat-row>
+  </mat-table>
+  
+  <mat-paginator #paginator [length]="20" [pageSize]="5" 
+  [pageSizeOptions]="[5, 25, 50]" [showFirstLastButtons]="true" [hidePageSize]="true" >
+  </mat-paginator>
+</div> 
+
+<p>Export as XLSX by clicking the below button</p>
+<button (click)="exportAsXLSX()"><i style="font-size:16px;color:blue"> click</i></button>
+
+<!-- <table>
+ <tr>
+   <td>Eid</td>
+   <td>Ename</td>
+   <td>Esal</td>
+ </tr>
+ <tr *ngFor="let item of data">
+   <td>{{item.eid}}</td>
+   <td>{{item.ename}}</td>
+   <td>{{item.esal}}</td>
+ </tr>
+</table> -->
+
+<!-- [ngClass]="{'highlight': selectedRowIndex == row.id}" -->
